@@ -1,0 +1,172 @@
+import random
+
+# usr_input = input("Please enter a number: ")
+# cmptr_input = random.randint(0,8)
+usr_record = []
+cmptr_record = []
+time = 0
+
+while time < 5 :
+    cmptr_repeat = False
+    usr_input = input("Please enter a number: ")
+    if usr_input >=9:
+        print ('0~8 please')
+        exit()
+    c_record = usr_record + cmptr_record
+#     print c_record
+#     print 'len : ' ,len(c_record)
+    if len(c_record) > 0:
+        
+        for xx in usr_record:
+            if usr_input == xx:
+                print ('Duplicated number')
+                #usr_input = input("Please enter a number: ")
+                exit()
+    print("前面")
+    if len(usr_record) > 0 and len(cmptr_record) > 0 and usr_input < 9:
+        print("if 1")
+        combine_record = usr_record + cmptr_record
+        check_combine =''
+        cmptr_input = random.randint(0,8)
+        
+        count = 0
+        nonduplicate = 0
+        stop = False
+        print (cmptr_input)
+        while stop == False:
+            i = 0
+            print (combine_record)
+            print ('com len: ',len(combine_record))
+            nonduplicate = 0
+            for x in combine_record:
+#                 print 'step: ',i
+                if cmptr_input != x:
+                    nonduplicate = nonduplicate + 1
+#                     print 'non: ',nonduplicate
+                else:
+                    cmptr_input = random.randint(0,8)
+#                     print 'break! new: ', cmptr_input
+                    break
+                if i == len(combine_record)-1 and nonduplicate == len(combine_record):
+                    stop = True
+                    print (stop)
+                i = i + 1
+            count = count + 1
+        print (cmptr_input)
+        
+        if cmptr_input == usr_input or cmptr_repeat == True:
+            print("if 2")
+            cmptr_input = random.randint(0,8)
+        else:
+            if usr_input <9:
+#                 print("if 3")
+                for x in combine_record:
+                    if usr_input == x:
+                        print('Please enter again!')
+                        break;
+                    else:
+#                         print('333 usr',usr_record)
+#                         print('333 cmptr',cmptr_record)
+#                         print('333 before',combine_record)
+                        d_count = 0
+                        i = 0
+                        for xx in usr_record:
+                        
+                        
+                            if usr_input == xx:
+                                d_count = d_count + 1
+                                break
+                            if i == len(usr_record)-1 and d_count == 0:
+                                usr_record.append(usr_input)
+                            i = i + 1
+                    
+#                         print('333 usr',usr_record)
+#                         print('333 cmptr',cmptr_record)
+
+                        combine_record = None
+                        combine_record = usr_record + cmptr_record
+#                         print('333 after append',combine_record)
+#                         print('333 cmptr ',cmptr_record)
+#                         print('333 af ',combine_record)
+                        print(combine_record)
+#                         print 'len: ', len(usr_record), ' ', len(cmptr_record)
+                        if len(usr_record) > len(cmptr_record):
+
+                            count = 0
+                            nonduplicate = 0
+                            stop = False
+                            print (cmptr_input)
+                            while stop == False:
+                                i = 0
+                                print (combine_record)
+#                                 print 'com len: ',len(combine_record)
+                                nonduplicate = 0
+                                for x in combine_record:
+#                                     print 'step: ',i
+                                    if cmptr_input != x:
+                                        nonduplicate = nonduplicate + 1
+#                                         print 'non: ',nonduplicate
+                                    else:
+                                        cmptr_input = random.randint(0,8)
+#                                         print 'break! new: ', cmptr_input
+                                        break
+                                    if i == len(combine_record)-1 and nonduplicate == len(combine_record):
+                                        stop = True
+                                
+                                        print (stop)
+                                        cmptr_record.append(cmptr_input)
+
+                                
+                                    i = i + 1
+                                count = count + 1
+                    
+                            print (cmptr_input)
+                    
+    else:
+        print("else 2")
+        if usr_input<9:
+            cmptr_input = random.randint(0,8)
+            while cmptr_input == usr_input:
+                cmptr_input = random.randint(0,8)
+            usr_record.append(usr_input)
+            cmptr_record.append(cmptr_input)
+    print("中間")
+    if usr_input <9:
+        
+#         print 'draw usr_record: ', usr_record
+#         print 'draw cmp_record: ', cmptr_record
+    
+        origin = ["  |","  |","","  |","  |","","  |","  |",""]
+    
+        for i in usr_record:
+            i = int(i)
+            if i%3 == 0:
+                origin[i] = 'o |'
+            elif i%3 ==1:
+                origin[i] = 'o |'
+            else:
+                origin[i] = 'o'
+        for j in cmptr_record:
+            if j%3 == 0:
+                origin[j] = 'x |'
+            elif j%3 ==1:
+                origin[j] = 'x |'
+            else:
+                origin[j] = 'x'
+        print(origin[6],origin[7],origin[8])
+        print("--  --  --")
+        print(origin[3],origin[4],origin[5])
+        print("--  --  --")
+        print(origin[0],origin[1],origin[2])
+        if time >= 2:
+            n = 0
+        while n < len(usr_record):
+            if usr_record[n]/3 == 0:
+                    
+            elif usr_record[n]/3 == 1:
+                    
+            elif usr_record[n]/3 == 2:
+                    
+        print(time)
+        time = time + 1
+        print(time)
